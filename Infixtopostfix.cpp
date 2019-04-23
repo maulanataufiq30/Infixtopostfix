@@ -20,3 +20,26 @@ template<typename F>
 Stack<F>::Stack(){
 	
 }
+
+template<typename F>
+bool Stack<F>::isempty(){ 
+	if (stack.size() == 0)
+		return true;
+	else
+		return false;
+}
+
+template<typename F>
+F Stack<F>::gottop(){
+	return stack[stack.size()-1];
+}
+
+template<typename F>
+void Stack<F>::push(F entry){
+   stack.push_back(entry);
+}
+
+template<typename F>
+void Stack<F>::pop(){
+   stack.pop_back();
+}
