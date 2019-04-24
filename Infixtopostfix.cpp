@@ -43,3 +43,29 @@ template<typename F>
 void Stack<F>::pop(){
    stack.pop_back();
 }
+int main() 
+{
+	Stack <char> s;
+	s.push('[');
+	string x, y;
+	cin>>x;
+	cout<<endl;
+	x+=']';
+	int index = 0; //index into y
+	while(x[index] != ']'){
+	
+			
+		if(x[index] == '*' or x[index] == '/' 
+		or x[index] == '+' or x[index] == '-'){
+			if(s.gottop() == '*' or s.gottop() == '/'){
+				y+=s.gottop();
+				s.pop();
+			}
+			if(x[index] == '+' or x[index == '-']){
+				if(s.gottop() == '+' or s.gottop() == '-'){
+					y+=s.gottop();
+					s.pop();
+				}
+			}
+			s.push(x[index]);
+		}
