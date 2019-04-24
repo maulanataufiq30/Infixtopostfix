@@ -69,3 +69,30 @@ int main()
 			}
 			s.push(x[index]);
 		}
+		if(x[index] == '(')
+			s.push(x[index]);
+		
+		if(x[index] == ')'){
+			while(s.gottop() != '('){
+				if(s.gottop() == '*' or s.gottop() == '/' or s.gottop() == '+' or s.gottop() == '-')
+					y+=s.gottop();
+				s.pop();
+			}
+		}
+		
+		if(x[index] != '+' and x[index] != '-' and x[index] != '*' and x[index] != '/' 
+		and x[index] != '(' and x[index] != ')' and x[index] != '[' and x[index] != ']')
+			y+=x[index];
+		
+		index++; 
+	}
+	s.push(x[index]);
+	while(s.gottop() != '['){
+		if(s.gottop() == '*' or s.gottop() == '/' 
+		or s.gottop() == '+' or s.gottop() == '-')
+			y+=s.gottop();
+		s.pop();
+	}
+	s.pop();
+	cout << y;
+}
